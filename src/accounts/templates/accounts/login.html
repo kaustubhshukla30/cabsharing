@@ -14,10 +14,11 @@
             <hr>
          <form action="{% url 'signin' %}" method="POST">
            {% csrf_token %}
-           {{form|crispy}}
+           {{form|crispy}}<br>
            <input type="submit" class="btn btn-outline-primary" value="Submit">
          </form>
          <br>
+         <a href="{% url 'password_reset' %}">Forgot Password</a>
          <p>Don't have an account? Click here to <a href="{% url 'signup' %}">Register</a></p>
           </div>
         </div>

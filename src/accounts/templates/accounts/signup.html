@@ -3,6 +3,12 @@
  {% load static %}           <!-- important to add -->
 {% block content %}
 
+{% if error %}
+<div class="alert alert-danger" role="alert">
+{{ error }}
+</div>
+{% endif %}
+
 <div class="container signup-container">
   <div class="row">
   <div class="col-md-4">
@@ -14,7 +20,7 @@
    <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
      {% csrf_token %}
      {{ user_form|crispy }}
-     {{ details_form|crispy }}
+     {{ details_form|crispy }}<br>
      <input type="submit" class="btn btn-outline-primary" value="Submit">
    </form>
    <br>
